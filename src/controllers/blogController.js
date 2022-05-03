@@ -13,7 +13,7 @@ let createBlog = async function(req, res) {
         let findAuthor = await autherModel.findById(id)
         if (!findAuthor) return res.status(404).send({ msg: "authorId invalid" })
         if (body.isPublished == true)
-        content["publishedAt"] = new Date();
+        body["publishedAt"] = new Date();
         let blog = await blogsModel.create(data)
         res.status(201).send({ status: true, data: blog })
     } catch (err) {
